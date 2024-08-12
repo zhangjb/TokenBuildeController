@@ -11,7 +11,7 @@ docker run -d -p 8888:8080 -e "app.cloudHome=/app/key" tokenbuilder_app
 
 # 登录到容器
 
-docker exec -it <container_id_or_name> /bin/bash
+docker exec -it  tokenbuilder_app  /bin/bash
 
 # 确保
 

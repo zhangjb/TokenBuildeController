@@ -18,7 +18,7 @@ RUN mvn dependency:go-offline -B
 
 # 将项目的源代码复制到容器中
 COPY src ./src
-COPY key ./key
+
 
 # 构建应用程序
 RUN mvn clean package -DskipTests
@@ -31,6 +31,6 @@ WORKDIR /app
 
 # 从构建阶段复制构建的 JAR 文件
 COPY --from=build /app/target/TokenBuilder-0.0.1-SNAPSHOT.jar /app/TokenBuilder-0.0.1-SNAPSHOT.jar
-
+COPY key /app/key
 # 运行 Java 应用程序
 ENTRYPOINT ["java", "-jar", "TokenBuilder-0.0.1-SNAPSHOT.jar"]

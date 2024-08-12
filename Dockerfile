@@ -9,6 +9,7 @@ WORKDIR /app
 
 # 复制 Maven 项目的 pom.xml 文件到工作目录
 COPY pom.xml /app/
+
 # 复制本地的 settings.xml 文件到 Maven 配置目录中
 COPY settings.xml /root/.m2/settings.xml
 
@@ -17,6 +18,7 @@ RUN mvn dependency:go-offline -B
 
 # 将项目的源代码复制到容器中
 COPY src ./src
+COPY key ./key
 
 # 构建应用程序
 RUN mvn clean package -DskipTests

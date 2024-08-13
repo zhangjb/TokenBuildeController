@@ -7,7 +7,7 @@ docker build -t tokenbuilder_app .
 
 # 启动
 
-docker run -d -p 8888:8080 -e "app.cloudHome=/app/key" tokenbuilder_app
+docker run -d -p 9800:8080 -e "app.cloudHome=/app/key" tokenbuilder_app
 
 # 登录到容器
 
